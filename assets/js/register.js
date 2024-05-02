@@ -65,6 +65,7 @@ form.addEventListener("submit", async function (e) {
 		submitBtn.disabled = false;
 		submitBtn.textContent = "Submit";
 		submitBtn.style.backgroundColor = "";
+		location.href = "#contact";
 	}
 });
 
