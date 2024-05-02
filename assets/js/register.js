@@ -95,22 +95,40 @@ function showAlert(message, type) {
 	alertBox.classList.add(type);
 	alertBox.style.visibility = "visible";
 
-	window.scrollTo({
-		top: 0,
-		left: 0,
-		behavior: "smooth",
-	});
-
 	// Hide alert after 3 seconds
 	setTimeout(function () {
 		alertBox.style.visibility = "hidden";
 	}, 3000);
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+	var modal = document.getElementById("welcomeModal");
+	var closeButton = document.getElementsByClassName("close")[0];
+
+	modal.style.display = "block";
+
+	closeButton.onclick = function () {
+		modal.style.display = "none";
+	};
+
+	window.onclick = function (event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	};
+});
+
 // ==== Animate on Scroll Initialize  ==== //
 AOS.init();
 
 // ==== GSAP Animations ==== //
+// ==== LOGO  ==== //
+gsap.from("#welcomeModal", {
+	opacity: 0,
+	y: -10,
+	delay: 1,
+	duration: 0.5,
+});
 // ==== LOGO  ==== //
 gsap.from(".logo", {
 	opacity: 0,
